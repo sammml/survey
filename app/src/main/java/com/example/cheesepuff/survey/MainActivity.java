@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     boolean question5_rg;
     boolean question8_rg;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,14 +128,9 @@ public class MainActivity extends AppCompatActivity {
             scoreCount =+ 1;
         }
 
-
-
-
         Toast toast = Toast.makeText(getApplicationContext(), "Good Job, " + name + " ! Your score is " + scoreCount + " out of 8!", Toast.LENGTH_LONG);
         toast.show();
 
-
     }
-
 
 }
