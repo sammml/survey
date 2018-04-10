@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton question4a1;
     RadioButton question5a1;
     EditText question6answer;
+    String kerning;
     CheckBox question7a2;
     CheckBox question7a3;
     RadioButton question8a1;
@@ -31,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
     boolean question5_rg;
     boolean question8_rg;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         EditText nameField = findViewById(R.id.name_field);
         String name = nameField.getText().toString();
@@ -55,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
         question5a1 = (RadioButton) findViewById(R.id.question5a1);
 
         //question 6
-        EditText question6answer = (EditText) findViewById(R.id.question6answer);
+        EditText question6Answer = findViewById(R.id.question6answer);
+        String question6 = question6Answer.getText().toString();
 
         //question7
         question7a2 = (CheckBox) findViewById(R.id.question7a2);
@@ -63,14 +67,22 @@ public class MainActivity extends AppCompatActivity {
 
         //question 8
         question8a1 = (RadioButton) findViewById(R.id.question8a1);
-
     }
 
     public void submitAnswers(View view) {
 
+        EditText nameField = findViewById(R.id.name_field);
+        String name = nameField.getText().toString();
+
         if(question1a2.isChecked()) {
             scoreCount += 1;
         }
+        //add 1 point if answer is correct question 1
+
+        if (question1a2.isChecked()) {
+            scoreCount =+ 1;
+        }
+
         //add 1 point if answer is correct question 2
 
         if (question2a3.isChecked()) {
@@ -96,8 +108,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // add 1 point if answer is correct question 6
+        //question 6
+        EditText question6Answer = findViewById(R.id.question6answer);
+        String question6 = question6Answer.getText().toString();
 
-        if (question6answer.equals("kerning")) {
+        if (question6.equals("kerning")) {
             scoreCount =+ 1;
         }
 
@@ -114,8 +129,12 @@ public class MainActivity extends AppCompatActivity {
             scoreCount =+ 1;
         }
 
-        Toast toast = Toast.makeText(getApplicationContext(), "Good JOb, " + name + " ! Your score is " + scoreCount + " out of 8!", Toast.LENGTH_LONG);
+
+
+
+        Toast toast = Toast.makeText(getApplicationContext(), "Good Job, " + name + " ! Your score is " + scoreCount + " out of 8!", Toast.LENGTH_LONG);
         toast.show();
+
 
     }
 
